@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - echo "Running composer install"
+    - composer install --no-dev --optimize-autoloader
+    - echo "Clearing and caching config"
+    - php artisan config:cache
+    - echo "Running migrations"
+    - php artisan migrate --force
+    - echo "Clearing view cache"
+    - php artisan view:clear
+    - echo "Optimizing application"
+    - php artisan optimize

@@ -46,7 +46,13 @@ require __DIR__ . '/auth.php';
 Route::middleware(['auth'])->group(function () {
     // Dashboard (par défaut)
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $apps = [
+            ['name' => 'Intranet', 'route' => 'intranet'],
+            ['name' => 'Contact', 'route' => 'contact.create'],
+            ['name' => 'Mon Profil', 'route' => 'profile.edit'],
+        ];
+
+        return view('dashboard', compact('apps'));
     })->name('dashboard');
 
     // Page principale de l’intranet

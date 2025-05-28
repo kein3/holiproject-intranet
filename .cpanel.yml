@@ -1,8 +1,5 @@
 ---
 deployment:
   tasks:
-    - composer install --no-dev --optimize-autoloader
-    - php artisan config:cache
-    - php artisan migrate --force
-    - php artisan view:clear
-    - php artisan optimize
+    - echo "✓ Code mis à jour depuis GitHub"
+

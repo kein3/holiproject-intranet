@@ -1,3 +1,23 @@
+2vdq1h-codex/afficher-toutes-les-applications-dans-le-tableau-de-bord
+# Holiproject Intranet
+
+This project uses Laravel. To run the test suite you must install PHP and Composer.
+
+## Setup
+
+Run the provided setup script to install PHP, Composer and other dependencies:
+
+```bash
+bash .codex/setup.sh
+```
+
+After setup, you can run the tests with:
+
+```bash
+bash .codex/test.sh
+```
+
+
 # HoliProject Intranet
 
 ## Development Setup
@@ -18,3 +38,4 @@ vendor/bin/phpunit
 ```
 
 If PHP is missing in your environment, install it first or use a Docker setup such as Laravel Sail.
+main

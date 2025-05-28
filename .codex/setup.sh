@@ -13,9 +13,15 @@ php composer-setup.php --quiet
 php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
+rxq017-codex/afficher-toutes-les-applications-dans-le-tableau-de-bord
+
 # Install PHP dependencies
 composer install --prefer-dist --no-interaction --no-progress
 
 # Display versions for debugging
+main
 php -v
 composer --version
+
+# Install project dependencies
+composer install --no-interaction --prefer-dist

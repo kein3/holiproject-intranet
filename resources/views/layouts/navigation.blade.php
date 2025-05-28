@@ -20,6 +20,10 @@
                         {{ __('Intranet') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('contact.create')" :active="request()->routeIs('contact.create')">
+                        {{ __('Contact') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                         {{ __('Mon Profil') }}
                     </x-nav-link>
@@ -86,6 +90,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('intranet')" :active="request()->routeIs('intranet')">
                 {{ __('Intranet') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contact.create')" :active="request()->routeIs('contact.create')">
+                {{ __('Contact') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                 {{ __('Mon Profil') }}

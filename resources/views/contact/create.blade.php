@@ -4,7 +4,10 @@
             {{ session('status') }}
         </div>
     @endif
+ ovxwby-codex/créer-formulaire-dans-l-application
 
+
+ main
     <form method="POST" action="{{ route('contact.store') }}" class="space-y-4">
         @csrf
         <div>
@@ -24,7 +27,8 @@
         </div>
     </form>
 </x-guest-layout>
-=======
+ovxwby-codex/créer-formulaire-dans-l-application
+
 @extends('layouts.guest')
 
 @section('content')
@@ -57,3 +61,4 @@
 </div>
 @endsection
 
+ main

@@ -10,6 +10,13 @@ Run the setup script to install PHP, Composer and all project dependencies:
 bash .codex/setup.sh
 ```
 
+Next, copy the example environment file and generate an application key:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
 After the setup completes, execute the test suite:
 
 ```bash

@@ -4,9 +4,13 @@
             {{ session('status') }}
         </div>
     @endif
+oe367o-codex/créer-formulaire-dans-l-application
+
+
  ovxwby-codex/créer-formulaire-dans-l-application
 
 
+ main
  main
     <form method="POST" action="{{ route('contact.store') }}" class="space-y-4">
         @csrf
@@ -27,6 +31,8 @@
         </div>
     </form>
 </x-guest-layout>
+ oe367o-codex/créer-formulaire-dans-l-application
+
 ovxwby-codex/créer-formulaire-dans-l-application
 
 @extends('layouts.guest')
@@ -61,4 +67,5 @@ ovxwby-codex/créer-formulaire-dans-l-application
 </div>
 @endsection
 
+ main
  main

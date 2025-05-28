@@ -1,40 +1,41 @@
 # HoliProject Intranet
 
-This project uses Laravel. The provided helper scripts make it easier to set up PHP and run the test suite in Codex environments.
+This Laravel project includes helper scripts for developing and testing in Codex environments.
 
-## Setup
+## Quick Start
 
-Run the setup script to install PHP, Composer and the project dependencies:
+Run the setup script to install PHP, Composer and all project dependencies:
 
 ```bash
 bash .codex/setup.sh
 ```
 
-## Testing
-
-After setup, run the tests with:
+After the setup completes, execute the test suite:
 
 ```bash
 bash .codex/test.sh
 ```
 
-The test script checks that PHP is available and delegates to `vendor/bin/phpunit`.
+## Requirements
 
-## Development Setup
+- PHP 8.2 or higher
+- Composer
 
-This project requires PHP 8.2 or higher. To get started:
+## Manual Development Setup
+
+If you prefer to manage your own environment:
 
 1. Install PHP and Composer.
 2. Run `composer install` to install dependencies.
 3. Copy `.env.example` to `.env` and run `php artisan key:generate`.
-4. Run the local server with `php artisan serve`.
+4. Start the application with `php artisan serve`.
 
-## Running Tests
+## Running PHPUnit
 
-Execute the test suite with:
+You can invoke the test runner directly:
 
 ```bash
 vendor/bin/phpunit
 ```
 
-If PHP is missing in your environment, install it first or use a Docker setup such as Laravel Sail.
+If PHP is not installed, run `.codex/setup.sh` or use a containerized approach such as Laravel Sail.

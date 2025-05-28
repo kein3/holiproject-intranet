@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 set -e
 
-# Update package list and install PHP with required extensions
-sudo apt-get update
-sudo apt-get install -y php php-cli php-mbstring unzip curl
+# 1. Met à jour et installe PHP + extensions utiles
+apt-get update
+apt-get install -y \
+  php php-cli php-mbstring php-xml php-zip php-intl \
+  unzip curl git zip
 
-# Install Composer
-EXPECTED_CHECKSUM="$(wget -q -O - https://composer.github.io/installer.sig)"
+# 2. Installe Composer de façon sécurisée
+EXPECTED_SIG="$(wget -q -O - https://composer.github.io/installer.sig)"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '$EXPECTED_CHECKSUM') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); exit(1); }"
-php composer-setup.php --quiet
+php -r "if (hash_file('SHA384','composer-setup.php') !== '$EXPECTED_SIG') { echo 'ERROR: Invalid installer signature'; unlink('composer-setup.php'); exit(1); }"
+php composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet
 php -r "unlink('composer-setup.php');"
-sudo mv composer.phar /usr/local/bin/composer
 
-# Install project dependencies
-composer install --no-interaction --prefer-dist
+# 3. Installe les dépendances du projet (network OK ici)
+composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Display versions for debugging
+# 4. Vérif debug
 php -v
 composer --version

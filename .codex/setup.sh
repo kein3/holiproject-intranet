@@ -13,4 +13,8 @@ php composer-setup.php --quiet
 php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
+php -v
 composer --version
+
+# Install project dependencies
+composer install --no-interaction --prefer-dist

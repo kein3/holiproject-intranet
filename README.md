@@ -17,6 +17,11 @@ application key and apply the database migrations:
 bash scripts/setup.sh
 ```
 
+hux0tn-codex/exclure-.env-de-git-et-ajouter-.env.example
+After copying, edit `.env` to add your database credentials and other
+secrets. This file should never be committed to version control.
+
+
  0addug-codex/exclure-.env-de-git-et-ajouter-.env.example
 After copying, edit `.env` to add your database credentials and other
 secrets. This file should never be committed to version control.
@@ -25,6 +30,7 @@ After the script completes, edit `.env` to add your database credentials
 and other secrets. This file should never be committed to version control.
 main
 
+main
 After the setup completes, execute the test suite:
 
 ```bash
@@ -47,11 +53,28 @@ If you prefer to manage your own environment:
    Provide your own credentials in the new `.env` file and keep it out
    of version control.
 
+hux0tn-codex/exclure-.env-de-git-et-ajouter-.env.example
+
 3. Execute `bash scripts/setup.sh` to create `.env`, generate the
    application key and run the migrations. Provide your own credentials
    in the new `.env` file and keep it out of version control.
  main
+main
 4. Start the application with `php artisan serve`.
+
+## Deployment
+
+On a production server, copy `.env.example` to `.env` and generate an
+application key:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Fill in your database credentials and other secrets directly in this
+`.env` file on the server. Keep it out of Git. If `.env` or `APP_KEY` is
+missing, Laravel will respond with a 500 error.
 
 ## Running PHPUnit
 

@@ -6604,6 +6604,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Tests\\Feature\\Auth\\RegistrationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/RegistrationTest.php',
         'Tests\\Feature\\ContactTest' => __DIR__ . '/../..' . '/tests/Feature/ContactTest.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
+        'Tests\\Feature\\IntranetTest' => __DIR__ . '/../..' . '/tests/Feature/IntranetTest.php',
         'Tests\\Feature\\ProfileTest' => __DIR__ . '/../..' . '/tests/Feature/ProfileTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',

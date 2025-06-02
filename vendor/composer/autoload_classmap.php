@@ -6089,6 +6089,7 @@ return array(
     'Tests\\Feature\\Auth\\RegistrationTest' => $baseDir . '/tests/Feature/Auth/RegistrationTest.php',
     'Tests\\Feature\\ContactTest' => $baseDir . '/tests/Feature/ContactTest.php',
     'Tests\\Feature\\ExampleTest' => $baseDir . '/tests/Feature/ExampleTest.php',
+    'Tests\\Feature\\IntranetTest' => $baseDir . '/tests/Feature/IntranetTest.php',
     'Tests\\Feature\\ProfileTest' => $baseDir . '/tests/Feature/ProfileTest.php',
     'Tests\\TestCase' => $baseDir . '/tests/TestCase.php',
     'Tests\\Unit\\ExampleTest' => $baseDir . '/tests/Unit/ExampleTest.php',

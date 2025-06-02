@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -27,7 +28,7 @@ class ProfileController extends Controller
         $user->bio  = $data['bio'] ?? $user->bio;
 
         if ($request->filled('password')) {
-            $user->password = bcrypt($data['password']);
+            $user->password = Hash::make($data['password']);
         }
 
         if ($request->hasFile('avatar')) {

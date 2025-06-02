@@ -10,15 +10,20 @@ Run the setup script to install PHP, Composer and all project dependencies:
 bash .codex/setup.sh
 ```
 
-Next, copy the example environment file and generate an application key:
+Next, run the helper script to create your `.env` file, generate the
+application key and apply the database migrations:
 
 ```bash
-cp .env.example .env
-php artisan key:generate
+bash scripts/setup.sh
 ```
 
+ 0addug-codex/exclure-.env-de-git-et-ajouter-.env.example
 After copying, edit `.env` to add your database credentials and other
 secrets. This file should never be committed to version control.
+
+After the script completes, edit `.env` to add your database credentials
+and other secrets. This file should never be committed to version control.
+main
 
 After the setup completes, execute the test suite:
 
@@ -37,9 +42,15 @@ If you prefer to manage your own environment:
 
 1. Install PHP and Composer.
 2. Run `composer install` to install dependencies.
+ 0addug-codex/exclure-.env-de-git-et-ajouter-.env.example
 3. Copy `.env.example` to `.env` and run `php artisan key:generate`.
    Provide your own credentials in the new `.env` file and keep it out
    of version control.
+
+3. Execute `bash scripts/setup.sh` to create `.env`, generate the
+   application key and run the migrations. Provide your own credentials
+   in the new `.env` file and keep it out of version control.
+ main
 4. Start the application with `php artisan serve`.
 
 ## Running PHPUnit

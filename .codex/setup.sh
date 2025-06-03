@@ -26,7 +26,7 @@ echo "PHP version : $(php -v | head -n 1)"
 echo "Composer version : $(composer --version)"
 
 # 5. Installer les dépendances Laravel
-cd /workspace/holiproject-intranet
+cd /home/holiprojectcom/intranetV3
 composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # 6. Créer le fichier SQLite et lancer les migrations

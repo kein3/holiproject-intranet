@@ -18,3 +18,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+use App\Http\Controllers\ChatGptController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/chat', [ChatGptController::class, 'index'])->name('chat.index');
+    Route::post('/chat/ask', [ChatGptController::class, 'ask'])->name('chat.ask');
+});

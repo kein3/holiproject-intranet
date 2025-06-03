@@ -10,11 +10,10 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
- public function test_the_application_redirects_to_login_if_not_authenticated(): void
-{
-    $response = $this->get('/');
+    public function test_the_application_redirects_to_login_if_not_authenticated(): void
+    {
+        $response = $this->get('/');
 
-    $response->assertRedirect('/login');
-}
-
+        $response->assertRedirect('/login');
+    }
 }

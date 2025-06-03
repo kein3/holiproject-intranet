@@ -26,13 +26,13 @@ Ce dépôt contient l'intranet **HoliProject** développé avec [Laravel 12](htt
    bash .codex/setup.sh
    ```
 
-2. Générez le fichier `.env`, la clé d'application et appliquez les migrations :
+2. Copiez `.env.example` vers `.env`, générez la clé d'application et appliquez les migrations :
 
    ```bash
    bash scripts/setup.sh
    ```
 
-3. Modifiez ensuite `.env` pour y renseigner vos identifiants de base de données et autres secrets (ce fichier ne doit jamais être versionné).
+3. Modifiez ensuite `.env` pour y renseigner vos identifiants de base de données et autres secrets. Ce fichier et les autres fichiers générés ne sont pas versionnés.
 
 ## Lancement en développement
 

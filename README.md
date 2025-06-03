@@ -61,9 +61,10 @@ En production, copiez l'exemple de configuration :
 ```bash
 cp .env.example .env
 php artisan key:generate
+sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
 ```
 
-Renseignez les valeurs sensibles dans `.env` sur le serveur puis exécutez `php artisan migrate --force` et `npm run build` pour compiler les assets.
+Ce dernier remplacement désactive le mode de débogage en production. Renseignez ensuite les valeurs sensibles dans `.env` sur le serveur puis exécutez `php artisan migrate --force` et `npm run build` pour compiler les assets.
 
 ## Licence
 

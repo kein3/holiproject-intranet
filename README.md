@@ -1,62 +1,71 @@
 # HoliProject Intranet
 
-This Laravel project includes helper scripts for developing and testing in Codex environments.
+Ce dépôt contient l'intranet **HoliProject** développé avec [Laravel 12](https://laravel.com/). Il s'appuie sur le starter kit Breeze pour l'authentification et utilise Vite ainsi que Tailwind CSS pour la partie front‑end.
 
-## Quick Start
+## Fonctionnalités principales
 
-Run the setup script to install PHP, Composer and all project dependencies:
+- Authentification complète (inscription, connexion, réinitialisation de mot de passe)
+- Tableau de bord proposant l'accès à l'intranet, au formulaire de contact et à la page de profil
+- Formulaire de contact public enregistrant les messages dans la base via le modèle `Contact`
+- Édition du profil utilisateur : nom, bio, avatar et mot de passe
+- Modèles `User` et `Team` reliés par une relation many‑to‑many
+- Page interne « Intranet » réservée aux utilisateurs connectés
+- Suite de tests PHPUnit couvrant l'authentification, l'intranet, le formulaire de contact et la gestion du profil
+
+## Pré‑requis
+
+- PHP ≥ 8.2
+- Composer
+- Node.js et npm
+
+## Installation rapide
+
+1. Exécutez le script d'installation des dépendances :
+
+   ```bash
+   bash .codex/setup.sh
+   ```
+
+2. Copiez `.env.example` vers `.env`, générez la clé d'application et appliquez les migrations :
+
+   ```bash
+   bash scripts/setup.sh
+   ```
+
+3. Modifiez ensuite `.env` pour y renseigner vos identifiants de base de données et autres secrets. Ce fichier et les autres fichiers générés ne sont pas versionnés.
+
+## Lancement en développement
+
+Installez les dépendances npm puis lancez Vite et le serveur Laravel :
 
 ```bash
-bash .codex/setup.sh
+npm install
+npm run dev        # compile les assets en mode développement
+php artisan serve  # démarre le serveur local
 ```
 
-Next, run the helper script to create your `.env` file, generate the application key and apply the database migrations:
+## Exécution de la batterie de tests
 
-```bash
-bash scripts/setup.sh
-```
-
-After the script completes, edit `.env` to add your database credentials and other secrets. This file should never be committed to version control.
-
-Then execute the test suite:
+Utilisez le script fourni ou invoquez PHPUnit directement :
 
 ```bash
 bash .codex/test.sh
+# ou
+vendor/bin/phpunit
 ```
 
-## Requirements
+## Déploiement
 
-- PHP 8.2 or higher
-- Composer
-
-## Manual Development Setup
-
-If you prefer to manage your own environment:
-
-1. Install PHP and Composer.
-2. Run `composer install` to install dependencies.
-3. Copy `.env.example` to `.env` and run `php artisan key:generate`.
-   Provide your own credentials in the new `.env` file and keep it out of version control.
-4. Run `php artisan migrate` (or execute `bash scripts/setup.sh` to handle the environment file, key and migrations automatically).
-5. Start the application with `php artisan serve`.
-
-## Deployment
-
-On a production server, copy `.env.example` to `.env` and generate an application key:
+En production, copiez l'exemple de configuration :
 
 ```bash
 cp .env.example .env
 php artisan key:generate
+sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
 ```
 
-Fill in your database credentials and other secrets directly in this `.env` file on the server. Keep it out of Git. If `.env` or `APP_KEY` is missing, Laravel will respond with a 500 error.
+Ce dernier remplacement désactive le mode de débogage en production. Renseignez ensuite les valeurs sensibles dans `.env` sur le serveur puis exécutez `php artisan migrate --force` et `npm run build` pour compiler les assets.
 
-## Running PHPUnit
+## Licence
 
-You can invoke the test runner directly:
-
-```bash
-vendor/bin/phpunit
-```
-
-If PHP is not installed, run `.codex/setup.sh` or use a containerized approach such as Laravel Sail.
+Le projet est distribué sous licence [MIT](LICENSE).
